@@ -13,5 +13,14 @@
     "title": "CMS Pricing Service",
     "description": "Determine if an authored prescription has a cheaper alternative to switch to and display pricing",
     "hook": "medication-prescribe"
+  },
+  {
+    "id": "DTR-documentation",
+    "title": "DTR documentation Service",
+    "description": "Present the documentation template SMART on FHIR app to collect",
+    "hook": "order-review",
+    "prefetch": {
+      "patientToGreet": "Patient/{{Patient.id}}"
+    }
   }
 ]

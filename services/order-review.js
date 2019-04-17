@@ -16,7 +16,6 @@ function isValidPrefetch(request) {
 }
 
 function retrievePatientResource(fhirServer, patientId, accessToken) {
-  console.log(patientId);
   const headers = { Accept: 'application/json+fhir' };
   if (accessToken) {
     headers.Authorization = `Bearer ${accessToken}`;
@@ -35,40 +34,19 @@ function retrievePatientResource(fhirServer, patientId, accessToken) {
 
 function buildCard(patient) {
   const name = patient.name[0].given[0];
-  console.log(name);
   return {
-    cards: [
-    {
-      summary: 'SMART App Success Card',
-      indicator: 'success',
-      detail: 'This is an example SMART App success card.',
+    cards: [{
+      summary: `Now seeing: ${name}`,
       source: {
-        label: 'Static CDS Service Example',
-        url: 'https://bilirubin-risk-chart.hspconsortium.org/launch.html?iss=https%3A%2F%2Fapi-v8-stu3.hspconsortium.org%2FMCGArchExplore%2Fdata&launch=G9C0L5'
-      }
-    },    
-    {
-      summary: `MCG Cite for Admission Documentation for patient: ${name}`,
-      indicator: 'success',
-      detail: 'SMART App Card for MCG Cite for Admission Documentation to support DTR use case',
-      source: {
-        label: 'Card for SMART on FHIR',
-        url: 'https://dev.smart.mcg.com/v2/smartapp/e9ecb262-d4c4-4261-881e-ffce4ca0d66a?tenantId=mcg.com&tenantSecret=tenant-secret-for-synapse&iss=https%3A%2F%2Fapi-v8-stu3.hspconsortium.org%2FMCGArchExplore%2Fdata&launch=2X8VfB'
+        label: 'Patient greeting service',
       },
-      links: [
-        {
-          label: "Criteria for DTR",
-          url: 'https://dev.smart.mcg.com/v2/smartapp/e9ecb262-d4c4-4261-881e-ffce4ca0d66a?tenantId=mcg.com&tenantSecret=tenant-secret-for-synapse&iss=https%3A%2F%2Fapi-v8-stu3.hspconsortium.org%2FMCGArchExplore%2Fdata&launch=2X8VfB',
-          type: "smart"
-        }
-      ]
+      indicator: 'info',
     }],
   };
 }
 
 // CDS Service endpoint
 router.post('/', (request, response) => {
-  console.log(request.body);
   if (!isValidPrefetch(request)) {
     const { fhirServer, fhirAuthorization } = request.body;
     let patient;
