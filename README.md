@@ -50,6 +50,36 @@ To add another default service for the CDS Hooks Sandbox:
 3. Add the route to the `cds-services.js` file inside the `discovery` directory that points to the new service endpoint
 4. Add a test file to test the service endpoint route under the `/tests` directory
 
+---
+
+## Docker
+
+### Build The Image
+
+```bash
+$ docker build --force-rm -t sandbox-cds-services-node .
+# Sending build context to Docker daemon  60.14MB
+# Step 1/8 : FROM node:lts-alpine
+#  ---> d7c77d094be1
+# Step 2/8 : WORKDIR /usr/src/app
+#  ---> Using cache
+#  ---> 9724e698194a
+# Step 3/8 : COPY package*.json ./
+#  ---> 132d65b6dc65
+# Step 4/8 : RUN npm install
+#  ---> Running in 4935db07d63b
+# ...
+```
+
+### Launch a Container
+
+```bash
+$ docker run --rm -p 3000:3000 sandbox-cds-services-node
+# <container id>
+```
+
+---
+
 ## License
 
 Copyright 2017 Cerner Innovation, Inc

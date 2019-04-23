@@ -22,18 +22,18 @@
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
-    "express": "^4.16.3",
-    "uuid": "^3.2.1"
+    "express": "^4.16.4",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "axios-mock-adapter": "^1.15.0",
+    "axios-mock-adapter": "^1.16.0",
     "coveralls": "^3.0.3",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-import": "^2.17.2",
     "jest": "^22.4.4",
-    "nodemon": "^1.17.4",
-    "supertest": "^3.1.0"
+    "nodemon": "^1.18.11",
+    "supertest": "^3.4.2"
   },
   "jest": {
     "coveragePathIgnorePatterns": [

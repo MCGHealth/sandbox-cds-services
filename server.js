@@ -1,3 +1,5 @@
 const app = require('./index.js');
 
-app.listen((process.env.PORT || 3000));
+let port = process.env.PORT || 3000;
+console.log(`Example app listening on port ${port}!`)
+app.listen(port);
