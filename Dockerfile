@@ -1,15 +1,15 @@
 FROM node:lts-alpine
 
- WORKDIR /usr/src/app
+WORKDIR /usr/src/app
 
- COPY package*.json ./
+COPY package*.json ./
 
- RUN npm install
+RUN npm install
 
- RUN npm ci --only=production
+COPY . .
 
- COPY . .
+RUN npm install --production
 
- EXPOSE 3000
+EXPOSE 3000
 
- CMD [ "npm", "start" ]
+CMD [ "npm", "run", "start" ]
