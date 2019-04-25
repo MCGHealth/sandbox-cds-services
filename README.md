@@ -57,7 +57,7 @@ To add another default service for the CDS Hooks Sandbox:
 ### Build The Image
 
 ```bash
-$ docker build --force-rm -t sandbox-cds-services-node .
+$ docker build --force-rm -t mcg-cds-js .
 # Sending build context to Docker daemon  60.14MB
 # Step 1/8 : FROM node:lts-alpine
 #  ---> d7c77d094be1
@@ -74,8 +74,18 @@ $ docker build --force-rm -t sandbox-cds-services-node .
 ### Launch a Container
 
 ```bash
-$ docker run --rm -p 3000:3000 sandbox-cds-services-node
+$ docker run --rm -p 3000:3000 mcg-cds-js
 # <container id>
+```
+
+### Push to a Repository
+
+```bash
+$ docker login seadsharedcontainerregistry.azurecr.io --username <user name> --password <password>
+# Login succeeded
+$ docker tag <image id> seadsharedcontainerregistry.azurecr.io/mcg-cds-js
+$ docker push seadsharedcontainerregistry.azurecr.io/mcg-cds-js
+# latest: digest: sha256:<some large value> size: 2000
 ```
 
 ---
