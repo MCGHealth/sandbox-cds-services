@@ -3,10 +3,7 @@
     "id": "patient-greeting",
     "title": "Patient greeting",
     "description": "Display which patient the user is currently working with",
-    "hook": "patient-view",
-    "prefetch": {
-      "patient": "Patient/{{context.patientId}}"
-    }
+    "hook": "patient-view"
   },
   {
     "id": "cms-price-check",
@@ -15,12 +12,15 @@
     "hook": "medication-prescribe"
   },
   {
-    "id": "DTR-documentation",
+    "id": "order-review",
     "title": "DTR documentation Service",
     "description": "Present the documentation template SMART on FHIR app to collect",
-    "hook": "order-review",
-    "prefetch": {
-      "patientToGreet": "Patient/{{Patient.id}}"
-    }
+    "hook": "order-review"
+  },
+  {
+    "id": "order-select",
+    "title": "DTR documentation Service",
+    "description": "Present the documentation template SMART on FHIR app to collect",
+    "hook": "order-select"
   }
 ]
